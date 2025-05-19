@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PPDB SMK Contoh</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .info-kontak {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo Sekolah" class="logo">
+        <h1>SMK BINA INFORMATIKA</h1>
+        <p class="animated-text">
+            Daftar sekarang! Pendaftaran Peserta Didik Baru 2025/2026
+        </p>
+        <div class="info-kontak">
+            Email: <a href="mailto:info@smkbinainformatika.sch.id">info@smkbinainformatika.sch.id</a> |
+            Telp: <a href="tel:+6289617354862">+62 896-1735-4862</a>
+            Alamat: <a Jl. RE Abdullah No. 15>Jl. RE Abdullah No. 15</a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#jurusan">Jurusan</a>
+        <a href="#ekskul">Ekstrakurikuler</a>
+        <a href="#formulir">Formulir</a>
+        <a href="mailto:info@smkbinainformatika.sch.id">Email</a>
+        <a href="tel:+6289617354862">Telepon</a>
+        <a href="alamat:Jl. RE Abdullah, No 15">Alamat</a>
+    </nav>
+
+    <section class="jurusan" id="jurusan">
+        <h2>Jurusan</h2>
+        <div class="jurusan-item" data-keterangan="RPL mempelajari tentang pemrograman, pengembangan aplikasi, dan teknologi perangkat lunak.">
+            <img src="rpl.jpg" alt="RPL">
+            <p>
+                RPL (Rekayasa Perangkat Lunak)
+            </p>
+        </div>
+        <div class="jurusan-item" data-keterangan="MM fokus pada desain grafis, animasi, editing video dan media digital.">
+            <img src="mm.jpg" alt="Multimedia">
+            <p>
+                MM (Multimedia)
+            </p>
+        </div>
+        <div class="jurusan-item" data-keterangan="TKJ membahas jaringan komputer, instalasi, dan maintenance perangkat keras.">
+            <img src="tkj.jpg" alt="TKJ">
+            <p>
+                TKJ (Teknik Komputer dan Jaringan)
+            </p>
+        </div>
+        <div class="jurusan-item" data-keterangan="OTKP berkaitan dengan administrasi perkantoran dan teknologi otomasi.">
+            <img src="otkp.jpg" alt="OTKP">
+            <p>
+                OTKP (Otomatisasi dan Tata Kelola Perkantoran)
+            </p>
+        </div>
+        <div class="jurusan-item" data-keterangan="PKM mempelajari sistem perbankan, keuangan mikro dan akuntansi dasar.">
+            <img src="pkm.jpg" alt="PKM">
+            <p>
+                PKM (Perbankan dan Keuangan Mikro)
+            </p>
+        </div>
+
+
+</section>
+
+
+<section class="ekskul" id="ekskul">
+    <h2>Ekstrakurikuler</h2>
+    <ul>
+        <li>PMR</li>
+        <li>Paskibra</li>
+        <li>Pramuka</li>
+        <li>Futsal</li>
+        <li>Seni Tari</li>
+    </ul>
+</section>
+
+<section class="form-section" id="formulir">
+    <h2>Formulir Pendaftaran</h2>
+    <form id="ppdbForm">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="nisn">NISN:</label>
+        <input type="text" id="nisn" name="nisn" required />
+
+        <label for="alamat">Alamat:</label>
+        <textarea id="alamat" name="alamat" rows="3" required></textarea>
+
+        <label for="jurusan">Jurusan Pilihan:</label>
+        <select id="jurusan" name="jurusan" required>
+            <option value="">-- Pilih Jurusan --</option>
+            <option value="RPL">RPL</option>
+            <option value="MM">MM</option>
+            <option value="TKJ">TKJ</option>
+            <option value="OTKP">OTKP</option>
+            <option value="PKM">PKM</option>
+        </select>
+
+        <button type="submit">Daftar Sekarang!</button>
+    </form>
+
+    <div id="strukPendaftaran" class="struk" style="display:none;">
+        <h3>Struk Pendaftaran</h3>
+        <p id="output"></p>
+        <a id="waLink" href="#" target="_blank">Hubungi via WhatsApp</a>
+    </div>
+</section>
+
+
+<footer>
+    Nur Shinta XI RPL 2025
+</footer>
+
+<script>
+    document.getElementById('ppdbForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nama = document.getElementById('nama').value;
+        const email = document.getElementById('email').value;
+        const nisn = document.getElementById('nisn').value;
+        const alamat = document.getElementById('alamat').value;
+        const jurusan = document.getElementById('jurusan').value;
+
+        const templateMessage = `Halo admin PPDB SMK Bina Informatika. Saya (${nama}) telah mendaftar dengan email ${email}, NISN ${nisn}, alamat ${alamat}, dan memilih jurusan ${jurusan}. Mohon informasi selanjutnya.`;
+        const encodedMessage = encodeURIComponent(templateMessage);
+        const waNumber = '+6289617354862';
+        const waLink = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+
+        window.location.href = waLink;
+    });
+</script>
+
+</body>
+</html>
